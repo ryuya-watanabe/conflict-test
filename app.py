@@ -11,6 +11,17 @@ def top_page():
 
 from flask import Flask, render_template, request
 
+
+@app.route("/circle_input")
+def circle_result():
+    return render_template("circle_input.html")
+
+@add.route("circle_result")
+def circle_result():
+    radius = int(request.args.get("radius"))
+    result = 3.14 * radius ** 2
+    return render_template("circle_result.html", result=result)
+
 @app.route("/square_input")
 def square_input():
     return render_template("square_input.html")
